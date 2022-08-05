@@ -30,9 +30,13 @@ import java.util.List;
 public class ProductDto implements Serializable {
 
     private long id;
-    private String sku;
+
+
     private String name;
     private String description;
+    private Date dateUpdDescription;
+
+    private String sku;
     private String url;
     private String isoCode;
     private  float weight;
@@ -41,7 +45,6 @@ public class ProductDto implements Serializable {
     private  float depth;
     private Date dateUpd;
     private String categories;
-    private Date dateUpdDescription;
     private Date dateUpdImages;
     private Date dateUpdStock;
     //private boolean active;
@@ -81,7 +84,7 @@ public class ProductDto implements Serializable {
     private transient Promotion promotion;
     private transient Stocks stocks;
     private transient List<Review> reviews;
-    private transient ShoppingCart shoppingCart;
+    private transient List<ShoppingCart> shoppingCarts;
     private transient Orders orders;
     private transient Category category;
     private transient List<Images> images;

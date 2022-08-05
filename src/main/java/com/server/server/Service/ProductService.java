@@ -40,18 +40,8 @@ public class ProductService {
 
 
 
-    public Product getProductById(long id) {
-        Optional < Product > optional = productRepository.findById(id);
-        Product product = null;
-        if (optional.isPresent()) {
-            product = optional.get();
-        } else {
-            throw new RuntimeException(" Product not found for id :: " + id);
-        }
-        return product;
-    }
 
-    //update promo
+    //update product
     public ResponseEntity<Product> updateProduct(long id, Product product) {
 
         if (product == null) {
@@ -68,31 +58,10 @@ public class ProductService {
         }
     }
 
-    //delete product into cart
-    public void deleteProductByIdAndShoppingCart(long id_product,long id_shoppingCart) {
-        productRepository.deleteProductByIdAndShoppingCart(id_product,id_shoppingCart);
-    }
 
 
-    public ResponseEntity<Product> addProduct(Product product) {
-        if (product == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
 
-        productRepository.save(product);
-        return ResponseEntity.ok(product);
 
-    }
-    public List<Product> findAll() {
-
-        return productRepository.findAll();
-    }
-    public void saveP(Product product) {
-        this.productRepository.save(product);
-    }
-    public void deleteProductById(long id) {
-        this.productRepository.deleteById(id);
-    }
 
     // get product by id-category
     public List<Product> findProductByCategory_Id(long id_category) {

@@ -1,11 +1,10 @@
+
 package com.server.server.Controller;
 
 import com.server.server.Dto.ProductDto;
 import com.server.server.Dto.PromotionDto;
-import com.server.server.Dto.ReviewDto;
 import com.server.server.Entity.Product;
 import com.server.server.Entity.Promotion;
-import com.server.server.Entity.Review;
 import com.server.server.Service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +41,11 @@ public class ProductController {
 
   }
 
-  //get all promotions
+  //get all products
   @GetMapping("/getProducts")
   public List<ProductDto> getProducts() {
     return productService.getProducts().stream().map(product -> modelMapper.map(product, ProductDto.class))
-        .collect(Collectors.toList());
+            .collect(Collectors.toList());
   }
 
   //get product by id
@@ -83,17 +82,18 @@ public class ProductController {
     }
   }
 
-  @DeleteMapping(value = "deleteProductByIdAndShoppingCart/{id_product}/{id_shoppingCart}")
-  public void deleteProductByIdAndShoppingCart(@PathVariable("id_product") long id_product, @PathVariable("id_shoppingCart") long id_shoppingCart) {
-    productService.deleteProductByIdAndShoppingCart(id_product, id_shoppingCart);
-
-  }
 
   // get Product by id-category
   @GetMapping(value = "/findProductByCategory_Id/{id_category}")
   public List<ProductDto> findProductByCategory_Id(@PathVariable("id_category") long id_category) {
     return productService.findProductByCategory_Id(id_category).stream().map(prod -> modelMapper.map(prod, ProductDto.class))
-        .collect(Collectors.toList());
+            .collect(Collectors.toList());
   }
 
+
+
+
+
 }
+
+
