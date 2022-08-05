@@ -51,5 +51,6 @@ public class ClientDto implements Serializable{
 
   private transient List <Reclamation> reclamations;
 
+
 }
 
