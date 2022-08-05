@@ -100,7 +100,7 @@ public class ShoppingCartController {
     @PostMapping("IncrementQuantityProduct/{id_product}/{id_client}")
     public ResponseEntity<Object> IncrementQuantityProduct(@RequestBody ShoppingCartDto shoppingCartDto, @PathVariable("id_product") long id_product, @PathVariable("id_client") long id_client) {
         ShoppingCart shoppingCartReq = modelMapper.map(shoppingCartDto,ShoppingCart.class);
-        ResponseEntity<ShoppingCart> shoppingCart = shoppingCartService.IncrementQuantityProduct(shoppingCartReq,id_product,id_client);
+        ResponseEntity<ShoppingCart> shoppingCart = shoppingCartService.IncrementQuantityProduct(id_product,id_client);
         if (shoppingCart.getStatusCodeValue() == 200) {
             ShoppingCartDto shoppingCartRes = modelMapper.map(shoppingCart.getBody(), ShoppingCartDto.class);
             return new ResponseEntity<>(shoppingCartRes, HttpStatus.OK);

@@ -93,7 +93,7 @@ public class ShoppingCartService {
 
         Optional<Client> client = clientRepository.findById(id_client);
        Optional<Product> product = productRepository.findById(id_product);
-
+System.out.println("************************************"+shoppingCart.getBody());
         // set columns
 if(shoppingCart.getBody().getProduct().equals(product) &&   shoppingCart.getBody().getClient().equals(client) )
 {
