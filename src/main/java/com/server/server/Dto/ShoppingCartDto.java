@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -21,8 +22,11 @@ import java.util.List;
 @Setter
 public class ShoppingCartDto implements Serializable {
   private long id;
-
+  private Date date_adding_product;
+  private transient Product product;
   private transient Client client;
-  private transient List<Product> products;
+
 
 }
+
+

@@ -22,7 +22,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-
 public class Product {
     @Id
     private long id;
@@ -79,9 +78,6 @@ public class Product {
     private List<Review> reviews;
 
     @ManyToOne()
-    private ShoppingCart shoppingCart;
-
-    @ManyToOne()
     private Orders orders;
 
     @ManyToOne()
@@ -98,6 +94,10 @@ public class Product {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<Attributes> attributes;
+
+  @JsonIgnore
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+  private List<ShoppingCart> shoppingCarts;
 
 }
 
